@@ -11,6 +11,19 @@
             el.addClass('next').css('zIndex', zIndex--);
         });
         $('.item').addClass('hidden');
+        
+        $('textarea.code').each(function() {
+            var config = {readOnly: true};
+
+            // Set the syntax highlighting by using a language-* class, i.e. language-php
+            $($(this).attr('class').split(/\s+/)).each(function() {
+                if (this.indexOf('language-') === 0) {
+                    config.mode = this.substr(9).toLowerCase();
+                }
+            });
+            
+            CodeMirror.fromTextArea(this, config);
+        });
     });
     $(document).keydown(function (event) {
         switch (event.keyCode) {
@@ -36,7 +49,6 @@
             }
         }
     });
-
     function next() {
         var current = $('section.current');
         var items = current.find('.item.hidden');

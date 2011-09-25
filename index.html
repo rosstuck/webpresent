@@ -6,6 +6,17 @@
 
     <link rel="stylesheet" href="css/default.css" type="text/css">
     <script src="js/jquery-1.6.2.min.js"></script>
+
+    <link rel="stylesheet" href="vendor/codemirror2/lib/codemirror.css">
+    <link rel="stylesheet" href="vendor/codemirror2/theme/default.css">
+    <script src="vendor/codemirror2/lib/codemirror.js"></script>
+    
+    <script src="vendor/codemirror2/mode/xml/xml.js"></script>
+    <script src="vendor/codemirror2/mode/javascript/javascript.js"></script>
+    <script src="vendor/codemirror2/mode/css/css.js"></script>
+    <script src="vendor/codemirror2/mode/clike/clike.js"></script>
+
+    <script src="vendor/codemirror2/mode/php/php.js"></script>
 </head>
 <body>
 
@@ -50,10 +61,30 @@
 
     <section>
         <h1>Slide 3</h1>
+        
+        <textarea class="code language-php">
+<?php 
+$factorial = function($n) use (&$factorial) {
+      if ($n <= 1)
+        return 1;
+      else
+        return $n * $factorial($n - 1);
+};
+    </textarea>
     </section>
 
     <section>
         <h1>Slide 4</h1>
+        <textarea class="code language-javascript">
+$.ajax({
+  url: "test.html",
+  context: document.body,
+  success: function(){
+    $(this).addClass("done");
+  }
+});
+    </textarea>
+
     </section>
 
     <section>
